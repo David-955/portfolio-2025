@@ -54,7 +54,7 @@ var urls = [
     "https://github.com/Ngo-David/Flappy-Dunk",
     "https://github.com/Ngo-David/GPI-Fenouil-la-fine-equipe",
     "https://github.com/David-955/ParadisHardware",
-    "https://github.com/David-955/portfolio",
+    "https://github.com/David-955/portfolio-2025",
     "https://github.com/David-955/clickfast",
     "https://github.com/David-955/epicerie-symfony"
 ];
