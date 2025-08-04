@@ -1,8 +1,8 @@
 // Initialisation de EmailJS avec ma clé publique (le code suivant est trouvable sur le site de EmailJS)
 (function(){
-	emailjs.init({
-	  publicKey: "b8AcFwlY4X-XM0ieQ",
-	});
+    emailjs.init({
+      publicKey: "b8AcFwlY4X-XM0ieQ",
+    });
 })();
 
 // Date en haut de page de index.html et en temps réel
@@ -25,21 +25,35 @@ document.getElementById("annee").innerHTML=annee;
 var backToTopButton = document.getElementById("backToTop");
 var envelope = document.querySelector(".fa-envelope");
 var phone = document.querySelector(".fa-phone");
-var linkedin = document.querySelector(".fa-linkedin");
 
-// Afficher/Masquer le bouton en fonction du défilement
-// même principe pour les logos linkedin, tel, mail 
+// Fonction pour afficher/masquer les icônes selon la visibilité de la section contact
+function toggleIconsOnContact(visible) {
+    if (visible) {
+        envelope.style.display = "none";
+        phone.style.display = "none";
+    } else {
+        envelope.style.display = "block";
+        phone.style.display = "block";
+    }
+}
+
+// Intersection Observer pour détecter la visibilité de la section #contact
+var contactSection = document.getElementById("contact");
+var observer = new window.IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+        toggleIconsOnContact(true);
+    } else {
+        toggleIconsOnContact(false);
+    }
+}, { threshold: 0.1 });
+observer.observe(contactSection);
+
+// Afficher/Masquer le bouton backToTop en fonction du scroll (inchangé)
 window.onscroll = function() {
     if (document.documentElement.scrollTop > 50) {
         backToTopButton.style.display = "block";
-        envelope.style.display = "none";
-        phone.style.display = "none";
-        linkedin.style.display = "none";
     } else {
         backToTopButton.style.display = "none";
-        envelope.style.display = "block";
-        phone.style.display = "block";
-        linkedin.style.display = "block";
     }
 };
 
@@ -47,33 +61,35 @@ window.onscroll = function() {
 
 // Tableau contenant les URL des projets associés au carrousel. Ces URL seront insérées dans les balises <a> pour chaque élément.
 var urls = [
+    "https://github.com/David-955/mobileworld/tree/v1",
+    "https://github.com/David-955/epicerie-symfony/tree/David",
+    "https://github.com/David-955/clickfast/tree/david",
+    "https://github.com/David-955/portfolio-2025",
+    "https://github.com/David-955/ParadisHardware",
     "https://github.com/Ngo-David/Pacman",
     "https://github.com/Ngo-David/Authentic-Go-Game",
     "https://github.com/Ngo-David/Systeme-de-Gestion-de-Citoyens-2020",
     "https://github.com/Ngo-David/Ice-Walker",
     "https://github.com/Ngo-David/Flappy-Dunk",
-    "https://github.com/Ngo-David/GPI-Fenouil-la-fine-equipe",
-    "https://github.com/David-955/ParadisHardware",
-    "https://github.com/David-955/portfolio-2025",
-    "https://github.com/David-955/clickfast",
-    "https://github.com/David-955/epicerie-symfony"
+    "https://github.com/Ngo-David/GPI-Fenouil-la-fine-equipe"
 ];
 
 // Tableau des descriptions textuelles pour chaque projet. Ces textes seront affichés sur chaque image.
 var texts = [
+    "Mobile World (Symfony)",
+    "Hello Boutique (Symfony)",
+    "ClickFast (HTML, CSS, JS, Docker)",
+    "Mon portfolio (HTML, CSS, JavaScript)",
+    "Paradis du hardware (HTML, CSS)",
     "PAC-MAN (Java)",
     "Authentic-Go-Game (C#)",
     "Systeme de Gestion de Citoyens (Java)",
     "Ice Walker (Processing)",
     "Flappy Dunk (Processing)",
-    "Fenouil (Python, Java, HTML, CSS)",
-    "Paradis du hardware (HTML, CSS)",
-    "Mon portfolio (HTML, CSS, JavaScript)",
-    "ClickFast (HTML, CSS, JS, Docker)",
-    "Hello Boutique (Symfony)"
+    "Fenouil (Python, Java, HTML, CSS)"
 ];
 
-nbr = 10; // Nombre de projets donc d'images
+nbr = 11; // Nombre de projets donc d'images
 position = 0; // Position de départ. Position sert à gérer la translation horizontale pour simuler le déplacement.
 // Container cible l’élément HTML où le carrousel est rendu.
 container = document.getElementById("container-carrousel");
@@ -187,7 +203,7 @@ leftbutton4.onclick = function() {
 
 // Ajoute un écouteur d'événement "submit" au formulaire avec l'ID "contactForm"
 document.getElementById("contactForm").addEventListener("submit", function (e) {
-	e.preventDefault(); // Empêche le comportement par défaut de soumission (recharger la page)
+    e.preventDefault(); // Empêche le comportement par défaut de soumission (recharger la page)
 
     // Récupération des valeurs des champs du formulaire
     const name = document.getElementById("name").value; // Champ "Nom"
@@ -195,25 +211,25 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     const message = document.getElementById("message").value; // Champ "Message"
 
 
-	// Préparer les paramètres à envoyer via EmailJS
-	const templateParams = {
+    // Préparer les paramètres à envoyer via EmailJS
+    const templateParams = {
         name: name, // Valeur du champ "Nom"
         email: email, // Valeur du champ "Email"
         message: message, // Valeur du champ "Message"
-	};
+    };
 
-	// Envoyer l'email via EmailJS
-	emailjs.send("service_zc82wtv", "template_gwew0eg", templateParams).then(
-		function (response) {
+    // Envoyer l'email via EmailJS
+    emailjs.send("service_zc82wtv", "template_gwew0eg", templateParams).then(
+        function (response) {
             // En cas de succès, afficher un message de confirmation
             document.getElementById("send").innerHTML = "Message envoyé avec succès !";
-		},
-		function (error) {
+        },
+        function (error) {
             // En cas d'erreur, afficher un message d'erreur
             document.getElementById("send").innerHTML = "Erreur lors de l'envoi du message : " + error.text;
-		},
-	);
+        },
+    );
 
-	// Réinitialise le formulaire après l'envoi
-	document.getElementById("contactForm").reset();
+    // Réinitialise le formulaire après l'envoi
+    document.getElementById("contactForm").reset();
 });

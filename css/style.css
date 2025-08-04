@@ -33,7 +33,12 @@ body {
   z-index: 9999; /* S'assurer qu'il est au-dessus de tous les autres éléments */
   text-align: center;
   background-color: #63a0d9;
-  padding-bottom: 25px;
+  margin-right: 25px;
+}
+
+.nav-link:hover {
+  background-color: #ffffff35;
+  border-radius: 8px;
 }
 
 .nav-item {
@@ -94,33 +99,50 @@ body {
   z-index: 1;
 }
 
-.fa-linkedin,
-.fa-phone,
+.fa-address-card-fix {
+  position: fixed;
+  z-index: 1000;
+  right: 30px;
+  top: 220px;
+  font-size: 75px;
+  color: #63a0d9;
+}
+
+.fa-linkedin {
+  position: fixed;
+  z-index: 1000;
+  right: 30px;
+  top: 320px;
+  font-size: 80px;
+  color: #63a0d9;
+}
+
+.fa-phone {
+  position: fixed;
+  z-index: 1000;
+  right: 30px;
+  top: 420px;
+  font-size: 80px;
+  color: #63a0d9;
+}
+
 .fa-envelope {
   position: fixed;
-  z-index: 1000; /* Superposition par-dessus les autres éléments du conteneur */
-  right: 30px; /* Distance du bord droit du conteneur parent */
+  z-index: 1000;
+  right: 30px;
+  top: 520px;
   font-size: 80px;
-  color: #5e975e;
+  color: #63a0d9;
 }
 
 .fa-linkedin:hover,
 .fa-phone:hover,
-.fa-envelope:hover {
-  color: #63a0d9;
-}
-
-/* Placement des 3 icônes de linkedIn, du téléphone et de l'enveloppe à droite */
-.fa-linkedin {
-  bottom: 42%;
-}
-
-.fa-phone {
-  bottom: 29%;
-}
-
-.fa-envelope {
-  bottom: 17%;
+.fa-envelope:hover,
+.fa-address-card-fix:hover {
+  color: #5e975e;
+  background-color: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
 }
 
 /* Mon */
@@ -196,8 +218,9 @@ body {
   /* height: 800px; */
   background-image: url("../img/fond-aproposdemoi.webp");
   background-repeat: no-repeat;
-  /* image de fond remplit tout le fond */
-  background-size: 100% 100%;
+  /* image de fond remplit tout le fond sans déformation, crop si besoin */
+  background-size: cover;
+  background-position: center;
   position: relative;
   margin-top: -150px;
 }
@@ -219,12 +242,15 @@ body {
 }
 
 #bio {
-  background-color: rgb(245, 245, 245);
-  font-size: 20px;
+  background-color: rgba(235, 234, 232, 0.91);
+  font-size: 1.5rem;
   margin: 100px 5% 30px 0px;
   width: 50%;
   height: 700px;
   padding-top: 20px;
+  overflow-y: auto; /* Ajoute une barre de défilement verticale si besoin */
+  word-break: break-word; /* Coupe les mots trop longs */
+  border-radius: 8px;
 }
 
 #bio p,
@@ -395,7 +421,7 @@ body {
 /* numero de tel et mail */
 #contact a {
   font-size: 50px;
-  color: #63a0d9;
+  color: #3578c5;
   text-decoration: none;
 }
 
@@ -428,7 +454,7 @@ body {
 
 .contact-form button {
   padding: 10px 20px;
-  background-color: #63a0d9;
+  background-color: #3578c5;
   color: white;
   border: none;
   border-radius: 4px;
@@ -438,7 +464,7 @@ body {
 }
 
 .contact-form button:hover {
-  background-color: #5e975e;
+  background-color: #205080;
   text-align: center;
 }
 
@@ -467,7 +493,61 @@ body {
   background-color: black;
   text-align: center;
   color: #63a0d9;
-  font-size: 25px;
+  display: inline-block;
+  min-width: 48px;
+  min-height: 48px;
+  line-height: 48px;
+  padding: 0 16px;
+  margin: 0 12px;
+  vertical-align: middle;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Appliquer le style iubenda aussi à "Mentions légales" si elle a la classe .iubenda-embed */
+#end a.iubenda-embed {
+  font-size: 15px !important;
+  background: #fff !important;
+  color: #222 !important;
+  border: 1px solid #ccc !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1) !important;
+  padding: 0 16px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  line-height: 48px !important;
+  margin: 0 12px !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s !important;
+}
+
+#end a.iubenda-embed:hover, #end a.iubenda-embed:focus {
+  background: #f0f0f0 !important;
+  color: #3578c5 !important;
+  border-color: #3578c5 !important;
+  box-shadow: 0 0 16px rgba(53,120,197,0.15) !important;
+  outline: none !important;
+}
+
+/* Spécifique aux boutons iubenda dans le footer */
+#end .iubenda-embed {
+  display: inline-block !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  line-height: 48px !important;
+  padding: 0 16px !important;
+  margin: 0 12px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  vertical-align: middle !important;
 }
 
 .david {
@@ -512,6 +592,23 @@ body {
 
 #cv img {
   width: 100%;
+}
+
+/* optimisation menu burger */
+@media (max-width: 1399.98px) {
+  .navbar-nav {
+    width: 100%;
+  }
+
+  .nav-link {
+    margin-right: 0;
+    margin-top: 5px;
+  }
+
+  .nav-link:hover {
+  background-color: #5e975e;
+  border-radius: 0px;
+  }
 }
 
 /* version bureau 2 */
@@ -570,6 +667,10 @@ body {
     margin-left: 270px;
     padding-top: 535px;
     font-size: 50px;
+  }
+
+  .fa-address-card-fix {
+    font-size: 55px;
   }
 
   .fa-linkedin,
@@ -653,6 +754,27 @@ body {
 
 /* version tablette */
 @media screen and (max-width: 768px) and (min-width: 480px) {
+  .fa-address-card-fix {
+      right: 10px;
+      top: 335px;
+      font-size: 55px;
+    }
+
+  .fa-linkedin {
+    right: 10px;
+    top: 420px;
+    font-size: 50px;
+  }
+  .fa-phone {
+    right: 10px;
+    top: 520px;
+    font-size: 55px;
+  }
+  .fa-envelope {
+    right: 10px;
+    top: 620px;
+    font-size: 55px;
+  }
   #bckg-cahier {
     margin-left: -290px;
   }
@@ -765,7 +887,7 @@ body {
   }
 
   #bio {
-    font-size: 15px;
+    font-size: 1.2rem;
     margin: 0 auto;
     width: 80%;
     height: 600px;
@@ -853,6 +975,30 @@ body {
 
 /* version mobile */
 @media screen and (max-width: 480px) {
+  .fa-address-card-fix {
+    right: 7px;
+    top: 240px;
+    font-size: 45px;
+  }
+  
+  .fa-linkedin {
+    right: 7px;
+    top: 320px;
+    font-size: 45px;
+  }
+
+  .fa-phone {
+    right: 7px;
+    top: 400px;
+    font-size: 45px;
+  }
+
+  .fa-envelope {
+    right: 7px;
+    top: 480px;
+    font-size: 45px;
+  }
+
   #bckg-cahier {
     margin-top: -122px;
     margin-left: -300px;
@@ -964,6 +1110,10 @@ body {
     font-size: 40px;
   }
 
+  #container-book {
+  background-image: none;
+  }
+
   .cadrebio {
     display: wrap;
     flex-wrap: wrap;
@@ -980,7 +1130,7 @@ body {
   }
 
   #bio {
-    font-size: 13px;
+    font-size: 1.2rem;
     margin: 0 auto;
     width: 80%;
     height: 600px;

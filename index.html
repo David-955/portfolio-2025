@@ -35,13 +35,13 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <!-- compensation avec des espaces car j'ai modifié au niveau du .nav-item dans le css pour que le menu déroulant rempli bien toute la longueur de la fenêtre -->
-                            <a class="nav-link" aria-current="page" href="#aboutme">À propos de moi &nbsp;&nbsp;</a>
+                            <a class="nav-link" aria-current="page" href="#aboutme">• À propos de moi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#projects">Mes projets &nbsp;</a>
+                            <a class="nav-link" href="#projects">• Mes projets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact &nbsp;</a>
+                            <a class="nav-link" href="#contact">• Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -63,15 +63,22 @@
         </article>
         <img id="bckg-cahier" src="img/fond-cahier.webp" alt="cahier">
 
-        <!-- Ouverture du lien linkedIn dans un nouvel onglet avec "target="_blank"" -->
+        <!-- Lien CV au-dessus du logo LinkedIn -->
+        <a href="cv.html" target="_blank"> 
+            <i class="fa-regular fa-address-card fa-address-card-fix"></i>
+            <span class="sr-only">Mon CV</span>
+        </a>
         <a href="https://www.linkedin.com/in/david-n-g-o/" target="_blank"> 
             <i class="fa-brands fa-linkedin"></i>
+            <span class="sr-only">Mon profil LinkedIn</span>
         </a>
         <a href="#contact">
             <i class="fa-solid fa-phone"></i>
+            <span class="sr-only">Mon numéro de téléphone</span>
         </a>
         <a href="#contact">
             <i class="fa-solid fa-envelope"></i>
+            <span class="sr-only">Mon adresse email</span>
         </a>
     </header>
 
@@ -82,7 +89,7 @@
                 <img id="cadre-photo" src="img/cadre-photo.webp" alt="cadre en bois pour photo">
                 <section id="bio">
                     <a href="cv.html">
-                        <i class="fa-solid fa-paperclip"></i>Mon CV (n'hésitez pas à cliquer ici)
+                        <i class="fa-solid fa-paperclip"></i>Mon CV 
                     </a>
                     <p>" Depuis mon premier contact avec la programmation en C# au lycée, j'ai découvert une véritable passion pour celle-ci. Ce domaine m'a tout de suite captivé par son pouvoir de transformer des idées en solutions concrètes. 
                     <br><br>
@@ -137,7 +144,7 @@
 
             <article class="details">
                 <a href="tel:+33757579393"><i class="fa-solid fa-square-phone"></i> 07 57 57 93 93</a>
-                <a href="mailto:ngodav@icloud.com"><i class="fa-solid fa-square-envelope"></i></i> ngodav@icloud.com</a>
+                <a href="mailto:ngodav@icloud.com"><i class="fa-solid fa-square-envelope"></i> ngodav@icloud.com</a>
             </article>
 
             <div class="contact-form">
@@ -163,13 +170,16 @@
 
     <footer>
         <section id="end">
-            <h2>©2024 by <span class="david">David Ngo</span></h2>
+            <h2>©<span id="current-year"></span> by <span class="david">David Ngo</span></h2>
+            <script>
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            </script>
             <br>
-            <a href="terms-and-conditions.html" title="Mentions légales" >Mentions légales</a>
+            <a href="terms-and-conditions.html" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe">Mentions légales</a>
             <br>
-            <a href="https://www.iubenda.com/privacy-policy/48896574" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Politique de confidentialité ">Politique de confidentialité</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+            <a href="https://www.iubenda.com/privacy-policy/48896574" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe" title="Politique de confidentialité ">Politique de confidentialité</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
             <br>
-            <a href="https://www.iubenda.com/privacy-policy/48896574/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Politique relative aux Cookies ">Politique relative aux Cookies</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+            <a href="https://www.iubenda.com/privacy-policy/48896574/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe" title="Politique relative aux Cookies ">Politique relative aux Cookies</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
         </section>
     </footer>
 
