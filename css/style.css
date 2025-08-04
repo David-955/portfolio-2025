@@ -990,6 +990,15 @@ body {
     bottom: 30%;
   }
 
+  .fa-linkedin:hover,
+  .fa-phone:hover,
+  .fa-envelope:hover,
+  .fa-address-card-fix:hover {
+    background-color: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
   #logo {
     /* redimensionnement du logo */
     z-index: 1000;
