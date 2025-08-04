@@ -484,47 +484,14 @@ body {
   padding-bottom: 50px;
 }
 
-#end h2 {
-  /* petit espacement entre h2 et mentions légales */
-  padding-bottom: 10px;
+.reserved {
+    font-style: italic;
+    font-size: 0.9em;
 }
 
-#end a {
-  background-color: black;
-  text-align: center;
-  color: #63a0d9;
-  display: inline-block;
-  min-width: 48px;
-  min-height: 48px;
-  line-height: 48px;
-  padding: 0 16px;
-  margin: 0 12px;
-  vertical-align: middle;
-  border-radius: 8px;
-  box-sizing: border-box;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-/* Appliquer le style iubenda aussi à "Mentions légales" si elle a la classe .iubenda-embed */
 #end a.iubenda-embed {
-  font-size: 15px !important;
   background: #fff !important;
   color: #222 !important;
-  border: 1px solid #ccc !important;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1) !important;
-  padding: 0 16px !important;
-  min-width: 48px !important;
-  min-height: 48px !important;
-  line-height: 48px !important;
-  margin: 0 12px !important;
-  border-radius: 8px !important;
-  box-sizing: border-box !important;
-  text-align: center !important;
-  vertical-align: middle !important;
-  display: inline-block !important;
-  cursor: pointer !important;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s !important;
 }
 
 #end a.iubenda-embed:hover, #end a.iubenda-embed:focus {

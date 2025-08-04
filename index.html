@@ -34,7 +34,6 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <!-- compensation avec des espaces car j'ai modifié au niveau du .nav-item dans le css pour que le menu déroulant rempli bien toute la longueur de la fenêtre -->
                             <a class="nav-link" aria-current="page" href="#aboutme">• À propos de moi</a>
                         </li>
                         <li class="nav-item">
@@ -64,7 +63,7 @@
         <img id="bckg-cahier" src="img/fond-cahier.webp" alt="cahier">
 
         <!-- Lien CV au-dessus du logo LinkedIn -->
-        <a href="cv.html" target="_blank"> 
+        <a href="#" class="openCvModal"> 
             <i class="fa-regular fa-address-card fa-address-card-fix"></i>
             <span class="sr-only">Mon CV</span>
         </a>
@@ -88,7 +87,7 @@
             <article class="cadrebio">
                 <img id="cadre-photo" src="img/cadre-photo.webp" alt="cadre en bois pour photo">
                 <section id="bio">
-                    <a href="cv.html">
+                    <a href="#" class="openCvModal">
                         <i class="fa-solid fa-paperclip"></i>Mon CV 
                     </a>
                     <p>" Depuis mon premier contact avec la programmation en C# au lycée, j'ai découvert une véritable passion pour celle-ci. Ce domaine m'a tout de suite captivé par son pouvoir de transformer des idées en solutions concrètes. 
@@ -170,7 +169,7 @@
 
     <footer>
         <section id="end">
-            <h2>©<span id="current-year"></span> by <span class="david">David Ngo</span></h2>
+            <h2>©<span id="current-year"></span> by <span class="david">David Ngo</span> — <span class="reserved">Tous droits réservés</span></h2>
             <script>
                 document.getElementById('current-year').textContent = new Date().getFullYear();
             </script>
@@ -208,8 +207,35 @@
     <script type="text/javascript" 
         src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
     <!-- Scripts personnels --> 
-    <script 
-        src="js/portfolio.js">
+    <div id="cvModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);z-index:99999;align-items:center;justify-content:center;">
+      <div style="background:#fff;max-width:1700px;width:98vw;height:98vh;position:relative;box-shadow:0 0 30px #000;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        <button id="closeCvModal" style="position:absolute;top:18px;right:32px;font-size:3.5rem;background:none;border:none;cursor:pointer;z-index:2;padding:0 18px 6px 18px;line-height:1;">&times;</button>
+        <iframe id="cvFrame" src="" style="flex:1;border:none;width:100%;height:100%;"></iframe>
+      </div>
+    </div>
+    <script src="js/portfolio.js"></script>
+    <script>
+      // Ouvre la modale et charge le CV depuis tous les liens .openCvModal
+      document.querySelectorAll('.openCvModal').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('cvFrame').src = 'cv.html';
+          document.getElementById('cvModal').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      // Ferme la modale
+      document.getElementById('closeCvModal').addEventListener('click', function() {
+        document.getElementById('cvModal').style.display = 'none';
+        document.getElementById('cvFrame').src = '';
+        document.body.style.overflow = '';
+      });
+      // Fermer la modale en cliquant sur le fond
+      document.getElementById('cvModal').addEventListener('click', function(e) {
+        if(e.target === this) {
+          document.getElementById('closeCvModal').click();
+        }
+      });
     </script>
 </body>
 
