@@ -324,6 +324,9 @@ body {
 
 /* Lien live demo à côté du bouton GitHub */
 .livedemo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* Espace entre l'icône et le texte */
   text-decoration: none;
   font-weight: bold;
   margin-left: 8px;
