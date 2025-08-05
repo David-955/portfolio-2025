@@ -322,6 +322,21 @@ body {
   height: 400px;
 }
 
+/* Lien live demo à côté du bouton GitHub */
+.livedemo-link {
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.livedemo-link:hover {
+  text-decoration: underline;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+}
+
 /* commun aux 2 boutons */
 .fa-circle-arrow-left,
 .fa-circle-arrow-right {
@@ -479,9 +494,14 @@ body {
 #end {
   background-color: black;
   text-align: center;
-  color: #ccc;
+  color: #f2f2f2;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.end-links {
+  display: flex;
+  justify-content: center;
 }
 
 .reserved {
@@ -490,8 +510,8 @@ body {
 }
 
 #end a.iubenda-embed {
-  background: #fff !important;
-  color: #222 !important;
+  background: #000000 !important;
+  color: #f2f2f2 !important;
 }
 
 #end a.iubenda-embed:hover, #end a.iubenda-embed:focus {
@@ -937,6 +957,11 @@ body {
 
   #contact a {
     font-size: 35px;
+  }
+
+  .end-links {
+    flex-direction: column;
+    align-items: center; /* Pour centrer horizontalement les éléments empilés */
   }
 }
 
